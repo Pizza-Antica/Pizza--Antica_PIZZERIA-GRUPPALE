@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forno Antico</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="./css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="./css/owl.theme.default.min.css" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo-area">
+        <img src="./img/logo.png" alt="Pizza Antica Logo" width="40" />
+        <span class="brand-name">Forno Antico</span>
+
+      </div>
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Offerte</a></li>
+          <li><a href="#">Contatti</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="#" class="btn-prenota">PRENOTA ORA</a>
+      </div>
+      <button id="nav-btn" class="nav-btn" aria-label="Apri menu">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </header>
+
+  <aside id="sidebar" class="sidebar">
+    <button id="close-btn" class="close-btn" aria-label="Chiudi menu">
+      <i class="bi bi-x"></i>
+    </button>
+
+    <ul class="sidebar-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Menu</a></li>
+      <li><a href="#">Orari</a></li>
+      <li><a href="#">Contatti</a></li>
+    </ul>
+    <div class="nav-actions-slide">
+      <a href="#" class="btn-prenota-slide">PRENOTA ORA</a>
+    </div>
+  </aside>
+
+  <section class="videohero">
+    <video autoplay muted loop id="myVideo">
+      <source src="img/pizzavideo.mp4" type="video/mp4">
+    </video>
+  </section>
+  <section class="ordinare">
+    <div class="container-ordina">
+      <h2>Ordina qui</h2>
+
+      <div class="form-card">
+        <div class="informazione">
+          <label>Nome e Cognome:</label>
+          <input type="text" id="nome">
+
+          <label>Telefono:</label>
+          <input type="text" id="telefono">
+          <label for="">Email:</label>
+          <input type="email" id="email">
+
+        </div>
+
+        <div class="flex-row">
+          <div class="select-box">
+            <label>Seleziona Pizza:</label>
+            <select id="pizzaName" onchange="showQuantitySection()">
+              <option value="" disabled selected>Scegli una pizza...</option>
+              <option value="Margherita" data-price="8">Margherita (€8)</option>
+              <option value="Pepperoni" data-price="10">Pepperoni (€10)</option>
+              <option value="Speciale" data-price="12">Speciale (€12)</option>
+            </select>
+          </div>
+
+          <div id="quantityContainer" class="select-box" style="display: none;">
+            <label>Quantità:</label>
+            <select id="quantity" onchange="showAddButton()">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="addBtn" onclick="addToCart()" class="btn-aggiungi" style="display: none;">Aggiungi al
+          carrello</button>
+      </div>
+
+      <div id="invoiceArea"></div>
+
+      <button id="finalOrderBtn" onclick="sendOrder()" class="btn-final" style="display: none;">Invia Ordine
+        Finale</button>
+    </div>
+  </section>
+
+  <footer class="footer-container">
+    <div class="footer-content">
+      <div class="footer-info">
+        <div class="logo-section">
+          <img src="./img/logo.png" alt="Forno antico" class="footer-logo" />
+          <span class="brand-name">Forno antico</span>
+        </div>
+
+        <p class="address">Via Lorem 31</p>
+        <p class="phone">+398965234</p>
+
+        <div class="hours">
+          <strong>Orari</strong>
+          <p>Tutti i giorni</p>
+          <p>Dalle 12:00 – 14:30 / 19:00 – 23:00</p>
+          <p>Sabato:</p>
+          <p>Dalle 12:00 – 14:30 / 19:00 – 00:00</p>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="#"><img src="./img/immagine 33.png" alt="Instagram" /></a>
+        <a href="#"><img src="./img/immagine 34.png" alt="YouTube" /></a>
+        <a href="#"><img src="./img/immagine 36.png" alt="Tripadvisor" /></a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>DIRITTI E NOTE LEGALI</p>
+
+      <div class="legal-links">
+        <a href="#">Informazioni legali</a>
+        <a href="#">Personal Data policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Dati societari</a>
+      </div>
+      <div class="copyright">
+        <p>© 2026 Forno Antico. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+  <script></script>
+  <!-- <script src="./js/jquery.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script> -->
+  <script src="./app.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Ho cambiato il selettore in ".owl-carousel" per farlo coincidere con il tuo HTML
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 15,
+        responsiveClass: true,
+        autoplay: true, // Opzionale: fa scorrere le pizze da sole
+        autoplayTimeout: 3000,
+        responsive: {
+          0: {
+            items: 1,
+            nav: true,
+          },
+          600: {
+            items: 2,
+            nav: false,
+          },
+          1000: {
+            items: 3, // Di solito 3 è più leggibile su desktop per queste card
+            nav: true,
+            loop: true,
+          },
+        },
+      });
+    });
+    f;
+  </script>
+
+</body>
+
+</html>
